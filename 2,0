@@ -1,0 +1,444 @@
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.Scanner;
+
+public class piškvorky {
+
+    static String pole1 = "|   | ";
+    static String pole2 = "|   | ";
+    static String pole3 = "|   | ";
+    static String pole4 = "|   | ";
+    static String pole5 = "|   | ";
+    static String pole6 = "|   | ";
+    static String pole7 = "|   | ";
+    static String pole8 = "|   | ";
+    static String pole9 = "|   | ";
+    static boolean cislo_bylo_už_zadano = false;
+    static ArrayList<Integer> seznam_čisla = new ArrayList<Integer>();
+    static boolean konec = false;
+
+    public static void main(String[] args) {
+        System.out.println("jak chceš hrat . S botem = 1 . bez bota =2");
+        Scanner scanner1 = new Scanner(System.in);
+        int počet_hrač = scanner1.nextInt();
+        if (počet_hrač == 1) {
+            String pole11 = "| 1 |";
+            String pole22 = "| 2 |";
+            String pole33 = "| 3 |";
+            String pole44 = "| 4 |";
+            String pole55 = "| 5 |";
+            String pole66 = "| 6 |";
+            String pole77 = "| 7 |";
+            String pole88 = "| 8 |";
+            String pole99 = "| 9 |";
+
+
+            System.out.print(pole11);
+            System.out.print(pole22);
+            System.out.println(pole33);
+            System.out.print(pole44);
+            System.out.print(pole55);
+            System.out.println(pole66);
+            System.out.print(pole77);
+            System.out.print(pole88);
+            System.out.print(pole99);
+            System.out.println(" ");
+            hrač1();
+        }
+        if (počet_hrač == 2) {
+            String pole11 = "| 1 |";
+            String pole22 = "| 2 |";
+            String pole33 = "| 3 |";
+            String pole44 = "| 4 |";
+            String pole55 = "| 5 |";
+            String pole66 = "| 6 |";
+            String pole77 = "| 7 |";
+            String pole88 = "| 8 |";
+            String pole99 = "| 9 |";
+
+
+            System.out.print(pole11);
+            System.out.print(pole22);
+            System.out.println(pole33);
+            System.out.print(pole44);
+            System.out.print(pole55);
+            System.out.println(pole66);
+            System.out.print(pole77);
+            System.out.print(pole88);
+            System.out.print(pole99);
+            System.out.println(" ");
+            hrač2();
+
+        }
+
+    }
+
+
+    public static void hrač1() {
+
+        while (konec == false) {
+
+            System.out.println(" ");
+            System.out.println("kam chceš dat zank, napiš čislo polička");
+            tah();
+            if (konec!=true) {
+
+
+                System.out.println(" ");
+                System.out.println("ted hraje bot");
+                bot();
+            }
+        }
+    }
+
+
+    static void vypsat_pole() {
+        System.out.println(" ");
+        System.out.println(" ");
+
+        System.out.print(pole1);
+        System.out.print(pole2);
+        System.out.println(pole3);
+        System.out.print(pole4);
+        System.out.print(pole5);
+        System.out.println(pole6);
+        System.out.print(pole7);
+        System.out.print(pole8);
+        System.out.print(pole9);
+
+    }
+
+    static void bot() {
+        boolean muže_byt = false;
+        int poličko_bot = 0;
+        Random random = new Random();
+        while (muže_byt != true) {
+            poličko_bot = random.nextInt(1, 9);
+            if (!seznam_čisla.contains(poličko_bot)) {
+                muže_byt = true;
+                seznam_čisla.add(poličko_bot);
+            }
+        }
+
+
+        if (poličko_bot == 1) {
+            pole1 = "| 0 | ";
+            vypsat_pole();
+        }
+        if (poličko_bot == 2) {
+            pole2 = "| 0 | ";
+            vypsat_pole();
+        }
+        if (poličko_bot == 3) {
+            pole3 = "| 0 | ";
+            vypsat_pole();
+        }
+        if (poličko_bot == 4) {
+            pole4 = "| 0 | ";
+            vypsat_pole();
+        }
+        if (poličko_bot == 5) {
+            pole5 = "| 0 | ";
+            vypsat_pole();
+        }
+        if (poličko_bot == 6) {
+            pole6 = "| 0 | ";
+            vypsat_pole();
+        }
+        if (poličko_bot == 7) {
+            pole7 = "| 0 | ";
+            vypsat_pole();
+        }
+        if (poličko_bot == 8) {
+            pole8 = "| 0 | ";
+            vypsat_pole();
+        }
+        if (poličko_bot == 9) {
+            pole9 = "| 0 | ";
+            vypsat_pole();
+        }
+        if (seznam_čisla.contains(1) &&
+                seznam_čisla.contains(2) &&
+                seznam_čisla.contains(3) &&
+                seznam_čisla.contains(4) &&
+                seznam_čisla.contains(5) &&
+                seznam_čisla.contains(6) &&
+                seznam_čisla.contains(7) &&
+                seznam_čisla.contains(8) &&
+                seznam_čisla.contains(9)) {
+            konec = true;
+            System.out.println("remiza");
+        }
+        if (pole1 == pole2 && pole2 == pole3 && pole3 == "| 0 | " && pole2 == "| 0 | " && pole1 == "| 0 | ") {
+            System.out.println(" ");
+            System.out.println("prohral jsi");
+            konec = true;
+        }
+        if (pole4 == pole5 && pole5 == pole6 && pole6 == "| 0 | " && pole4 == "| 0 | " && pole5 == "| 0 | ") {
+            System.out.println(" ");
+            System.out.println("prohral jsi");
+            konec = true;
+        }
+        if (pole7 == pole8 && pole8 == pole9 && pole9 == "| 0 | " && pole7 == "| 0 | " && pole8 == "| 0 | ") {
+            System.out.println(" ");
+            System.out.println("prohral jsi");
+            konec = true;
+        }
+        if (pole5 == pole2 && pole2 == pole8 && pole8 == "| 0 | " && pole5 == "| 0 | " && pole2 == "| 0 | ") {
+            System.out.println(" ");
+            System.out.println("prohral jsi");
+            konec = true;
+        }
+        if (pole1 == pole4 && pole4 == pole7 && pole7 == "| 0 | " && pole4 == "| 0 | " && pole1 == "| 0 | ") {
+            System.out.println(" ");
+            System.out.println("prohral jsi");
+            konec = true;
+        }
+        if (pole9 == pole6 && pole6 == pole3 && pole3 == "| 0 | " && pole9 == "| 0 | " && pole6 == "| 0 | ") {
+            System.out.println(" ");
+            System.out.println("prohral jsi");
+            konec = true;
+        }
+        if (pole1 == pole5 && pole5 == pole9 && pole9 == "| 0 | " && pole5 == "| 0 | " && pole1 == "| 0 | ") {
+            System.out.println(" ");
+            System.out.println("prohral jsi");
+            konec = true;
+        }
+        if (pole7 == pole5 && pole5 == pole3 && pole3 == "| 0 | " && pole5 == "| 0 | " && pole7 == "| 0 | ") {
+            System.out.println(" ");
+            System.out.println("prohral jsi");
+            konec = true;
+        }
+    }
+
+    static void tah() {
+        Scanner scanner = new Scanner(System.in);
+        int poličko = scanner.nextInt();
+        if (seznam_čisla.contains(poličko)) {
+            System.out.println("tohle čislo bylo zadané ty idiote");
+            cislo_bylo_už_zadano = true;
+        }
+        seznam_čisla.add(poličko);
+
+        if (cislo_bylo_už_zadano == false) {
+            if (poličko == 1) {
+                pole1 = "| X | ";
+                vypsat_pole();
+            }
+            if (poličko == 2) {
+                pole2 = "| X | ";
+                vypsat_pole();
+            }
+            if (poličko == 3) {
+                pole3 = "| X | ";
+                vypsat_pole();
+            }
+            if (poličko == 4) {
+                pole4 = "| X | ";
+                vypsat_pole();
+            }
+            if (poličko == 5) {
+                pole5 = "| X | ";
+                vypsat_pole();
+            }
+            if (poličko == 6) {
+                pole6 = "| X | ";
+                vypsat_pole();
+            }
+            if (poličko == 7) {
+                pole7 = "| X | ";
+                vypsat_pole();
+            }
+            if (poličko == 8) {
+                pole8 = "| X | ";
+                vypsat_pole();
+            }
+            if (poličko == 9) {
+                pole9 = "| X | ";
+                vypsat_pole();
+            }
+            if (seznam_čisla.contains(1) &&
+                    seznam_čisla.contains(2) &&
+                    seznam_čisla.contains(3) &&
+                    seznam_čisla.contains(4) &&
+                    seznam_čisla.contains(5) &&
+                    seznam_čisla.contains(6) &&
+                    seznam_čisla.contains(7) &&
+                    seznam_čisla.contains(8) &&
+                    seznam_čisla.contains(9)) {
+                konec = true;
+                System.out.println("remiza");
+
+
+            }
+            if (pole1 == pole2 && pole2 == pole3 && pole3 == "| X | " && pole2 == "| X | " && pole1 == "| X | ") {
+                System.out.println(" ");
+                System.out.println("vyhraly X");
+                konec = true;
+            }
+            if (pole4 == pole5 && pole5 == pole6 && pole6 == "| X | " && pole4 == "| X | " && pole5 == "| X | ") {
+                System.out.println(" ");
+                System.out.println("vyhraly X");
+                konec = true;
+
+            }
+            if (pole7 == pole8 && pole8 == pole9 && pole9 == "| X | " && pole7 == "| X | " && pole8 == "| X | ") {
+                System.out.println(" ");
+                System.out.println("vyhraly X");
+                konec = true;
+
+            }
+            if (pole5 == pole2 && pole2 == pole8 && pole8 == "| X | " && pole5 == "| X | " && pole2 == "| X | ") {
+                System.out.println(" ");
+                System.out.println("vyhraly X");
+                konec = true;
+
+            }
+            if (pole1 == pole4 && pole4 == pole7 && pole7 == "| X | " && pole4 == "| X | " && pole1 == "| X | ") {
+                System.out.println(" ");
+                System.out.println("vyhraly X");
+                konec = true;
+
+            }
+            if (pole9 == pole6 && pole6 == pole3 && pole3 == "| X | " && pole9 == "| X | " && pole6 == "| X | ") {
+                System.out.println(" ");
+                System.out.println("vyhraly X");
+                konec = true;
+
+            }
+            if (pole1 == pole5 && pole5 == pole9 && pole9 == "| X | " && pole5 == "| X | " && pole1 == "| X | ") {
+                System.out.println(" ");
+                System.out.println("vyhraly X");
+                konec = true;
+
+            }
+            if (pole7 == pole5 && pole5 == pole3 && pole3 == "| X | " && pole5 == "| X | " && pole7 == "| X | ") {
+                System.out.println(" ");
+                System.out.println("vyhraly X");
+                konec = true;
+
+            }
+        }
+    }
+    public static void hrač2() {
+
+        while (konec == false) {
+
+            System.out.println(" ");
+            System.out.println("kam chceš dat zank, napiš čislo polička");
+            tah();
+            if (konec!=true) {
+
+
+                System.out.println(" ");
+                System.out.println("ted hraje druhy hrač");
+                tah2();
+
+            }
+        }
+    }
+    static void tah2() {
+        Scanner scanner2 = new Scanner(System.in);
+        boolean muže_byt = false;
+        int poličko_bot = scanner2.nextInt();
+        seznam_čisla.add(poličko_bot);
+
+
+
+        if (poličko_bot == 1) {
+            pole1 = "| 0 | ";
+            vypsat_pole();
+        }
+        if (poličko_bot == 2) {
+            pole2 = "| 0 | ";
+            vypsat_pole();
+        }
+        if (poličko_bot == 3) {
+            pole3 = "| 0 | ";
+            vypsat_pole();
+        }
+        if (poličko_bot == 4) {
+            pole4 = "| 0 | ";
+            vypsat_pole();
+        }
+        if (poličko_bot == 5) {
+            pole5 = "| 0 | ";
+            vypsat_pole();
+        }
+        if (poličko_bot == 6) {
+            pole6 = "| 0 | ";
+            vypsat_pole();
+        }
+        if (poličko_bot == 7) {
+            pole7 = "| 0 | ";
+            vypsat_pole();
+        }
+        if (poličko_bot == 8) {
+            pole8 = "| 0 | ";
+            vypsat_pole();
+        }
+        if (poličko_bot == 9) {
+            pole9 = "| 0 | ";
+            vypsat_pole();
+        }
+        if (seznam_čisla.contains(1) &&
+                seznam_čisla.contains(2) &&
+                seznam_čisla.contains(3) &&
+                seznam_čisla.contains(4) &&
+                seznam_čisla.contains(5) &&
+                seznam_čisla.contains(6) &&
+                seznam_čisla.contains(7) &&
+                seznam_čisla.contains(8) &&
+                seznam_čisla.contains(9)) {
+            konec = true;
+            System.out.println(" ");
+            System.out.println("remiza");
+        }
+        if (pole1 == pole2 && pole2 == pole3 && pole3 == "| 0 | " && pole2 == "| 0 | " && pole1 == "| 0 | ") {
+            System.out.println(" ");
+            System.out.println("vyhraly 0");
+            konec = true;
+        }
+        if (pole4 == pole5 && pole5 == pole6 && pole6 == "| 0 | " && pole4 == "| 0 | " && pole5 == "| 0 | ") {
+            System.out.println(" ");
+            System.out.println("vyhraly 0");
+            konec = true;
+        }
+        if (pole7 == pole8 && pole8 == pole9 && pole9 == "| 0 | " && pole7 == "| 0 | " && pole8 == "| 0 | ") {
+            System.out.println(" ");
+            System.out.println("vyhraly 0");
+            konec = true;
+        }
+        if (pole5 == pole2 && pole2 == pole8 && pole8 == "| 0 | " && pole5 == "| 0 | " && pole2 == "| 0 | ") {
+            System.out.println(" ");
+            System.out.println("vyhraly 0");
+            konec = true;
+        }
+        if (pole1 == pole4 && pole4 == pole7 && pole7 == "| 0 | " && pole4 == "| 0 | " && pole1 == "| 0 | ") {
+            System.out.println(" ");
+            System.out.println("vyhraly 0");
+            konec = true;
+        }
+        if (pole9 == pole6 && pole6 == pole3 && pole3 == "| 0 | " && pole9 == "| 0 | " && pole6 == "| 0 | ") {
+            System.out.println(" ");
+            System.out.println("vyhraly 0");
+            konec = true;
+        }
+        if (pole1 == pole5 && pole5 == pole9 && pole9 == "| 0 | " && pole5 == "| 0 | " && pole1 == "| 0 | ") {
+            System.out.println(" ");
+            System.out.println("vyhraly 0");
+            konec = true;
+        }
+        if (pole7 == pole5 && pole5 == pole3 && pole3 == "| 0 | " && pole5 == "| 0 | " && pole7 == "| 0 | ") {
+            System.out.println(" ");
+            System.out.println("vyhraly 0");
+            konec = true;
+        }
+    }
+}
+
+
+
+
+
+
