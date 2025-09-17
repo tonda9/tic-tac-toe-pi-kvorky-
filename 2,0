@@ -109,17 +109,226 @@ public class piškvorky {
     }
 
     static void bot() {
-        boolean muže_byt = false;
+        if (konec)return;
         int poličko_bot = 0;
+        //random
+        boolean muže_byt = false;
         Random random = new Random();
         while (muže_byt != true) {
-            poličko_bot = random.nextInt(1, 9);
+            poličko_bot = random.nextInt(1, 10);
             if (!seznam_čisla.contains(poličko_bot)) {
                 muže_byt = true;
-                seznam_čisla.add(poličko_bot);
+
             }
         }
 
+
+
+        //obrana
+
+        if ( pole3 == "|  | " && pole2 == "| X | " && pole1 == "| X | ") {
+            System.out.println(" ");
+            poličko_bot = 3;
+        }
+        else if (  pole3 == "| X | " && pole2 == "|   | " && pole1 == "| X | "){
+            poličko_bot = 2;
+            System.out.println(" ");
+        }
+        else if (pole3 == "| X | " && pole2 == "| X | " && pole1 == "|   | ") {
+            poličko_bot = 1;
+            System.out.println(" ");
+        }
+
+        if ( pole6 == "|   | " && pole4 == "| X | " && pole5 == "| X | ") {
+            System.out.println(" ");
+            poličko_bot = 6;
+        }
+        else if ( pole6 == "| X | " && pole4 == "|   | " && pole5 == "| X | "){
+            poličko_bot = 4;
+            System.out.println(" ");
+        }
+        else if ( pole6 == "|   | " && pole4 == "| X | " && pole5 == "| X | ") {
+            poličko_bot = 5;
+            System.out.println(" ");
+        }
+        if ( pole9 == "|   | " && pole7 == "| X | " && pole8 == "| X | ") {
+            System.out.println(" ");
+            poličko_bot = 9;
+        }
+        else if ( pole9 == "| X | " && pole7 == "|   | " && pole8 == "| X | "){
+            poličko_bot = 7;
+            System.out.println(" ");
+        }
+        else if ( pole9 == "| X | " && pole7 == "| X | " && pole8 == "|   | ") {
+            poličko_bot = 8;
+            System.out.println(" ");
+        }
+        if ( pole8 == "|   | " && pole5 == "| X | " && pole2 == "| X | ") {
+            System.out.println(" ");
+            poličko_bot = 8;
+        }
+        else if ( pole8 == "| X | " && pole5 == "|   | " && pole2 == "| X | "){
+            poličko_bot = 5;
+            System.out.println(" ");
+        }
+        else if ( pole8 == "| X | " && pole5 == "| X | " && pole2 == "|   | ") {
+            poličko_bot = 2;
+            System.out.println(" ");
+        }
+        if ( pole7 == "|   | " && pole4 == "| X | " && pole1 == "| X | ") {
+            System.out.println(" ");
+            poličko_bot = 7;
+        }
+        else if ( pole7.equals("| X | ")  && pole4 == "|   | " && pole1.equals("| X | ")) {
+            poličko_bot = 4;
+            System.out.println(" ");
+        }
+        else if (pole7 == "| X | " && pole4 == "| X | " && pole1 == "|   | ") {
+            poličko_bot = 1;
+            System.out.println(" ");
+        }
+        if (pole3 == "|   | " && pole9 == "| X | " && pole6 == "| X | ") {
+            System.out.println(" ");
+            poličko_bot = 3;
+        }
+        else if (pole3 == "| X | " && pole9 == "|   | " && pole6 == "| X | "){
+            poličko_bot = 9;
+            System.out.println(" ");
+        }
+        else if (pole3 == "| X | " && pole9 == "| X | " && pole6 == "|   | ") {
+            poličko_bot = 6;
+            System.out.println(" ");
+        }
+        if (pole9 == "|   | " && pole5 == "| X | " && pole1 == "| X | ") {
+            System.out.println(" ");
+            poličko_bot = 9;
+        }
+        else if (pole9 == "| X | " && pole5 == "|   | " && pole1 == "| X | "){
+            poličko_bot = 5;
+            System.out.println(" ");
+        }
+        else if (pole9 == "| X | " && pole5 == "| X | " && pole1 == "|   | ") {
+            poličko_bot = 1;
+            System.out.println(" ");
+        }
+        if (pole3 == "|   | " && pole5 == "| X | " && pole7 == "| X | ") {
+            System.out.println(" ");
+            poličko_bot = 3;
+        }
+        else if (pole3 == "| X | " && pole5 == "|   | " && pole7 == "| X | "){
+            poličko_bot = 5;
+            System.out.println(" ");
+        }
+        else if (pole3 == "| X | " && pole5 == "| X | " && pole7 == "|   | ") {
+            poličko_bot = 7;
+            System.out.println(" ");
+        }
+
+        //utok
+
+        if (pole3 == "|  | " && pole2 == "| 0 | " && pole1 == "| 0 | ") {
+            System.out.println(" ");
+            poličko_bot = 3;
+        }
+        else if (pole3 == "| 0 | " && pole2 == "|   | " && pole1 == "| 0 | "){
+            poličko_bot = 2;
+            System.out.println(" ");
+        }
+        else if ( pole3 == "| 0 | " && pole2 == "| 0 | " && pole1 == "|   | ") {
+            poličko_bot = 1;
+            System.out.println(" ");
+        }
+
+        if (pole6 == "|   | " && pole4 == "| 0 | " && pole5 == "| 0 | ") {
+            System.out.println(" ");
+            poličko_bot = 6;
+        }
+        else if (pole6 == "| 0 | " && pole4 == "|   | " && pole5 == "| 0 | "){
+            poličko_bot = 4;
+            System.out.println(" ");
+        }
+        else if (pole6 == "|   | " && pole4 == "| 0 | " && pole5 == "| 0 | ") {
+            poličko_bot = 5;
+            System.out.println(" ");
+        }
+        if (pole9 == "|   | " && pole7 == "| 0 | " && pole8 == "| 0 | ") {
+            System.out.println(" ");
+            poličko_bot = 9;
+        }
+        else if (pole9 == "| 0 | " && pole7 == "|   | " && pole8 == "| 0 | "){
+            poličko_bot = 7;
+            System.out.println(" ");
+        }
+        else if (pole9 == "| 0 | " && pole7 == "| 0 | " && pole8 == "|   | ") {
+            poličko_bot = 8;
+            System.out.println(" ");
+        }
+        if (pole8 == "|   | " && pole5 == "| 0 | " && pole2 == "| 0 | ") {
+            System.out.println(" ");
+            poličko_bot = 8;
+        } else if ( pole8 == "| 0 | " && pole5 == "|   | "&& pole2 == "| 0 | ") {
+            poličko_bot = 5;
+            System.out.println(" ");
+        }
+        else if ( pole8 == "| 0 | " && pole5 == "| 0 | " && pole2 == "|   | ") {
+            poličko_bot = 2;
+            System.out.println(" ");
+        }
+        if (pole7 == "|   | " && pole4 == "| 0 | " && pole1 == "| 0 | ") {
+            System.out.println(" ");
+            poličko_bot = 7;
+        }
+        else if (pole7 == "| 0 | " && pole4 == "|   | " && pole1 == "| 0 | "){
+            poličko_bot = 4;
+            System.out.println(" ");
+        }
+        else if (pole7 == "| 0 | " && pole4 == "| 0 | " && pole1 == "|   | ") {
+            poličko_bot = 1;
+            System.out.println(" ");
+        }
+        if (pole3 == "|   | " && pole9 == "| 0 | " && pole6 == "| 0 | ") {
+            System.out.println(" ");
+            poličko_bot = 3;
+        }
+        else if (pole3 == "| 0 | " && pole9 == "|   | " && pole6 == "| 0 | "){
+            poličko_bot = 9;
+            System.out.println(" ");
+        }
+        else if (pole3 == "| 0 | " && pole9 == "| 0 | " && pole6 == "|   | ") {
+            poličko_bot = 6;
+            System.out.println(" ");
+        }
+        if (pole9 == "|   | " && pole5 == "| 0 | " && pole1 == "| 0 | ") {
+            System.out.println(" ");
+            poličko_bot = 9;
+        }
+        else if (pole9 == "| 0 | " && pole5 == "|   | " && pole1 == "| 0 | "){
+            poličko_bot = 5;
+            System.out.println(" ");
+        }
+        else if (pole9 == "| 0 | " && pole5 == "| 0 | " && pole1 == "|  | ") {
+            poličko_bot = 1;
+            System.out.println(" ");
+        }
+        if (pole3 == "|   | " && pole5 == "| 0 | " && pole7 == "| 0 | ") {
+            System.out.println(" ");
+            poličko_bot = 3;
+        }
+        else if (pole3 == "| 0 | " && pole5 == "|   | " && pole7 == "| 0 | "){
+            poličko_bot = 5;
+            System.out.println(" ");
+        }
+        else if (pole3 == "| 0 | " && pole5 == "| 0 | " && pole7 == "|   | ") {
+            poličko_bot = 7;
+            System.out.println(" ");
+        }
+
+
+
+
+
+
+        seznam_čisla.add(poličko_bot);
 
         if (poličko_bot == 1) {
             pole1 = "| 0 | ";
@@ -212,10 +421,11 @@ public class piškvorky {
     }
 
     static void tah() {
+        if (konec)return;
         Scanner scanner = new Scanner(System.in);
         int poličko = scanner.nextInt();
         if (seznam_čisla.contains(poličko)) {
-            System.out.println("tohle čislo bylo zadané ty idiote");
+            System.out.println("tohle čislo bylo zadané ");
             cislo_bylo_už_zadano = true;
         }
         seznam_čisla.add(poličko);
@@ -338,9 +548,13 @@ public class piškvorky {
         }
     }
     static void tah2() {
-        Scanner scanner2 = new Scanner(System.in);
-        boolean muže_byt = false;
-        int poličko_bot = scanner2.nextInt();
+        if (konec)return;
+        Scanner scanner = new Scanner(System.in);
+        int poličko_bot = scanner.nextInt();
+        if (seznam_čisla.contains(poličko_bot)) {
+            System.out.println("tohle čislo bylo zadané ");
+            return;
+        }
         seznam_čisla.add(poličko_bot);
 
 
@@ -436,9 +650,3 @@ public class piškvorky {
         }
     }
 }
-
-
-
-
-
-
